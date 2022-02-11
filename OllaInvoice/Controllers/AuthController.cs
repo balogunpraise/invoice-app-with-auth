@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using OllaInvoice.ApiResponses;
-using OllaInvoice.AuthModels;
 using OllaInvoice.Utility;
 using System;
 using System.Collections.Generic;
@@ -21,16 +20,15 @@ namespace OllaInvoice.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+
         private readonly IConfiguration _configuration;
         private readonly ISendEmail _sendEmail;
         private readonly SignInManager<AppUser> _signInManager;
 
-        public AuthController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, 
+        public AuthController(UserManager<AppUser> userManager, 
             IConfiguration configuration, ISendEmail sendEmail, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
             _configuration = configuration;
             _sendEmail = sendEmail;
             _signInManager = signInManager;

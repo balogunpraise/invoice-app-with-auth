@@ -92,9 +92,14 @@ namespace OllaInvoice
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OllaInvoice v1"));
               
             }
-            app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OllaInvoice v1"));
-            
+            //app.UseSwagger();
+            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OllaInvoice v1"));
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
+            }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();

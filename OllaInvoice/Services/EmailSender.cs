@@ -74,36 +74,6 @@ namespace OllaInvoice.Services
         }
 
 
-
-
-        //private MimeMessage CreateAuthEmail(Message message)
-        //{
-        //    var emailMessage = new MimeMessage();
-        //    emailMessage.From.Add(new MailboxAddress(_emailConfiguration.From));
-        //    emailMessage.To.AddRange(message.To);
-        //    emailMessage.Subject = message.Subject;
-        //    //var bodyBuilder = new BodyBuilder { HtmlBody = string.Format("<p>Hello click the file attachment bellow to get a copy of your invoice{0}</p>", message.Content) };
-        //    var bodyBuilder = new BodyBuilder { HtmlBody = string.Format(@"/Templates/confirmemail.cshtml", message.Content) };
-        //    if (message.Attachment != null && message.Attachment.Any())
-        //    {
-        //        byte[] fileBytes;
-        //        foreach (var attachment in message.Attachment)
-        //        {
-        //            using (var ms = new MemoryStream())
-        //            {
-        //                attachment.CopyTo(ms);
-        //                fileBytes = ms.ToArray();
-        //            };
-        //            bodyBuilder.Attachments.Add(attachment.FileName, fileBytes, ContentType.Parse("application/pdf"));
-        //        }
-        //    }
-        //    emailMessage.Body = bodyBuilder.ToMessageBody();
-        //    return emailMessage;
-        //}
-
-
-
-
         private void Send(MimeMessage message)
         {
             using var client = new SmtpClient();
